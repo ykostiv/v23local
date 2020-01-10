@@ -1,0 +1,81 @@
+version: v2
+navigator:
+  name: Galina Volobueva
+  email: galina.volobueva@trilogy.com
+tickets:
+  engImportTicket: https://jira.devfactory.com/browse/SLIAO-8285
+  devHubTicket:    null
+  dockerTicket:    null
+  devSpacesTicket: null
+  vmTicket:        null
+repo:
+  companyName: Think3
+  productName: SLIAO
+  repoUrl: https://github.com/trilogy-group/think3-sli-templatebuilder-modules-client-release-service
+  repoBranch: master
+  repoType: Third party managed service
+build:
+  preBuild: .cicd/ci/env-build.sh
+  buildCommand: mvn compile
+  credentials:
+  - class: string
+    credentialsId: sli-github-read-token
+    variable: GITHUB_READ_TOKEN
+buildenvVars:
+  - key: "GITHUB_READ_TOKEN"
+    secret: true
+    secretId: "devhub-import/env/GITHUB-SLI-TOKEN"
+test:
+  preTest: null
+  testCommand: mvn test
+package:
+  packageTool: Maven
+  packageCommand: mvn package
+  artifactDir: target
+  artifactUploadCommand: .cicd/ci/package.sh
+  credentials:
+    - class: usernamePassword
+      credentialsId: slisys-jenkins
+      usernameVariable: GITHUB_SLI_USERNAME
+      passwordVariable: GITHUB_SLI_PASSWORD
+ports:
+    - name: http
+      number: 8000
+      protocol: http
+      public: true
+jenkins:
+  productPath: /SLI-Systems/YAML/SLIAO
+  agentLabel: slisys-tbslave
+  pipelines:
+    ci:
+      environment: null
+    ib:
+      environment:
+        PKG_TYPE: snapshot
+      deployEnv: qa
+    rc:
+      environment:
+        PKG_TYPE: release
+      deployEnv: stage
+deploy_qa:
+  deploy:
+    deployCommand: .cicd/ib/deploy.sh
+    deploymentCheck: .cicd/ib/healthcheck.sh
+    credentials:
+    - class: usernamePassword
+      credentialsId: central-release-user
+      usernameVariable: RD_USER
+      passwordVariable: RD_PASSWORD
+    envVars: null
+    run: echo "managed by aura"
+deploy_stage:
+  deploy:
+    deployCommand: .cicd/rc/deploy.sh
+    deploymentCheck: .cicd/rc/healthcheck.sh
+    credentials:
+    - class: usernamePassword
+      credentialsId: central-release-user
+      usernameVariable: RD_USER
+      passwordVariable: RD_PASSWORD
+    envVars: null
+    run: echo "managed by aura"
