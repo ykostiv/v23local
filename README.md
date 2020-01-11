@@ -2,7 +2,10 @@
 
 This is v2 to v3 YAML format converter
 
-you need ``node.JS`` and ``js-yaml`` package installed
+you need ``node.JS`` and ``js-yaml`` module installed
+
+go to [nodejs.org](https://nodejs.org/en) to download the latest node.js
+after installing node.js add js-yaml module, better globally to have less issues
 ```
 npm install --global js-yaml
 
@@ -16,4 +19,4 @@ npm link
 yarn link
 
 ```
-then you can use ``v23 <filename>``
+then you can use ``v23 <filename>`` everywhere
