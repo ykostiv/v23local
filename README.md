@@ -2,22 +2,17 @@
 
 This is v2 to v3 YAML format converter
 
-you need ``node.JS`` and ``js-yaml`` module installed
+to install:
 
-go to [nodejs.org](https://nodejs.org/en) to download the latest node.js
+go to [nodejs.org](https://nodejs.org/en) to download the latest node.js in case you don't have it
 
-after installing node.js add js-yaml module, better globally to have less issues
+next, istall v23 package
 ```
-npm install --global js-yaml
-
-```
-
-to convert a `<filename>` use ``./v23.js <filename>``
-
-if you want to have v23 as a command in your shell, do under root permissions
-```
-npm link
-yarn link
+npm i -g v23
 
 ```
-then you can use ``v23 <filename>`` everywhere
+
+to convert a `<filename>` use
+```
+v23 <filename>
+```
