@@ -4,7 +4,7 @@ This is v2 to v3 YAML format converter
 
 you need ``node.JS`` and ``js-yaml`` module installed
 
-go to [nodejs.org](https://nodejs.org/en) to download the latest node.js
+go to [nodejs.org](https://nodejs.org/en) to download the latest node.js\n
 after installing node.js add js-yaml module, better globally to have less issues
 ```
 npm install --global js-yaml
