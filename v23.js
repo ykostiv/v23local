@@ -1,17 +1,21 @@
-
+//
+// YAML v.2 to v.3 converter. The whole conversion table is in function convert()
+//
 var fs = require('fs');
 var yaml = require('js-yaml');
 
+var filename = 'importOrderYAML.yaml';
+
 try {
-  var v2 = yaml.safeLoad(fs.readFileSync('example.yaml', 'utf8'));
+  var v2 = yaml.safeLoad(fs.readFileSync(filename, 'utf8'));
   if (v2.version != "v2") {
     console.log("\nERROR: not a v2 Yaml on the input\n");
     return;
   }
   var v3 = convert(v2);
   let yamlStr = yaml.safeDump(v3);
-  fs.writeFileSync('example-out.yaml', yamlStr, 'utf8');
-  console.log("success");
+  fs.writeFileSync('V3_' + filename, yamlStr, 'utf8');
+  console.log("Converted successfully --> V3_importOrderYAML.yaml");
   return 200;
 } catch (e) {
     console.log(e);
