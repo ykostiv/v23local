@@ -8,4 +8,11 @@ you need node.JS and js-yaml package installed
 
 to convert a `<filename>` use
 
-``node v23 <filename>``
+``./v23.js <filename>``
+
+if you want to have v23 as a command in your shell, do under root permissions
+``npm link
+npm yarn``
+
+then you can use
+``v23 <filename>``

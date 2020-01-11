@@ -1,4 +1,4 @@
 {
- name: "v23",
- bin: "./v23.js"
+ "name": "v23",
+ "bin": "./v23.js"
 }
