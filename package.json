@@ -14,5 +14,8 @@
  "repository": "ykostiv/v23",
  "files": [
    "v23.js"
- ]
+ ],
+ "dependencies": {
+   "js-yaml": "^3.13.1"
+ }
 }
