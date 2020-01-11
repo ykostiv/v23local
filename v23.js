@@ -4,18 +4,18 @@
 var fs = require('fs');
 var yaml = require('js-yaml');
 
-var filename = 'importOrderYAML.yaml';
-
 try {
-  var v2 = yaml.safeLoad(fs.readFileSync(filename, 'utf8'));
+  var fileName = process.argv.slice(2)[0];
+  console.log("Processing %s", fileName);
+  var v2 = yaml.safeLoad(fs.readFileSync(fileName, 'utf8'));
   if (v2.version != "v2") {
-    console.log("\nERROR: not a v2 Yaml on the input\n");
+    console.log("\nERROR: %s is not a V2 YAML\n", fileName);
     return;
   }
   var v3 = convert(v2);
   let yamlStr = yaml.safeDump(v3);
-  fs.writeFileSync('V3_' + filename, yamlStr, 'utf8');
-  console.log("Converted successfully --> V3_importOrderYAML.yaml");
+  fs.writeFileSync('V3_' + fileName, yamlStr, 'utf8');
+  console.log("Converted successfully --> V3_%s", fileName);
   return 200;
 } catch (e) {
     console.log(e);

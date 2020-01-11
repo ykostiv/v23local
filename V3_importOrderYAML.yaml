@@ -1,0 +1,121 @@
+version: v3
+navigator:
+  name: Galina Volobueva
+  email: galina.volobueva@trilogy.com
+tickets:
+  engImportTicket: 'https://jira.devfactory.com/browse/SLIAO-8285'
+  devHubTicket: '#TODO'
+  dockerTicket: '#TODO'
+  devSpacesTicket: '#TODO'
+companyName: Think3
+productName: SLIAO
+c4containerName: '#TODO'
+masterCicdProductYaml: '#TODO'
+repoUrl: >-
+  https://github.com/trilogy-group/think3-sli-templatebuilder-modules-client-release-service
+repoBranch: master
+githubTeamName: '#TODO'
+needsLowLevelHardwareAccess: '#TODO'
+needsDockerServer: '#TODO'
+type: Third party managed service
+buildAndDistribute:
+  sourceDependencies: {}
+  triggerOnSuccessOf: {}
+  envVars:
+    - key: GITHUB_READ_TOKEN
+      secret: true
+      secretId: devhub-import/env/GITHUB-SLI-TOKEN
+  os: '#TODO'
+  techStack: '#TODO'
+  toolchainVersion: '#TODO'
+  runtimeVersion: '#TODO'
+  caching:
+    folder: {}
+  build:
+    tool: '#TODO'
+    preBuildCommand: .cicd/ci/env-build.sh
+    buildCommand: mvn compile
+  test:
+    utFramework: '#TODO'
+    testCommand: mvn test
+    coverageReport:
+      type: Cobertura
+      path: '#TODO'
+    testReport:
+      type: '#TODO'
+      path: '#TODO'
+  package:
+    tool: Maven
+    command: mvn package
+    artifactDir: target
+  distribution:
+    artifactUploadCommand: .cicd/ci/package.sh
+  requiresIntegrationTests: '#TODO'
+deployment:
+  dependentServices: '#TODO'
+  serviceName: '#TODO'
+  overridableProps:
+    guiType: '#TODO'
+    envVars:
+      key: '#TODO'
+      secret: '#TODO'
+      service: '#TODO'
+      secretId: '#TODO'
+      value: '#TODO'
+    ports:
+      - name: http
+        number: 8000
+        protocol: http
+        public: true
+    stickySessions: '#TODO'
+    canUseLb: '#TODO'
+    stablePersistence: '#TODO'
+    fixedNetworkIdentifier: '#TODO'
+    storage: []
+    provision:
+      os: '#TODO'
+      prepareEnvCommand: '#TODO'
+      command: '#TODO'
+      checkCommand: '#TODO'
+    install:
+      dockerized: '#TODO'
+      runtimeOs: '#TODO'
+      runtimeEnv: '#TODO'
+      installCommand: '#TODO'
+    run:
+      mode: '#TODO'
+      command: '#TODO'
+      userName: '#TODO'
+    deploymentCheck:
+      exec:
+        command: '#TODO'
+      httpGet:
+        path: '#TODO #OPTIONAL'
+        port: '#TODO #OPTIONAL'
+        ssl: '#TODO #OPTIONAL'
+        verify: '#TODO #OPTIONAL'
+        httpHeaders:
+          - name: '#TODO #OPTIONAL'
+            value: '#TODO #OPTIONAL'
+      tcpSocket:
+        port: '#TODO #OPTIONAL'
+    integrationTest:
+      preTestCommand: '#TODO #OPTIONAL'
+      testCommand: '#TODO #OPTIONAL'
+  targets:
+    - name: Default
+      dev: {}
+      qa:
+        install:
+          installCommand: .cicd/ib/deploy.sh
+        deploymentCheck:
+          exec:
+            command: .cicd/ib/healthcheck.sh
+      reg: {}
+      stage:
+        install:
+          installCommand: .cicd/rc/deploy.sh
+        deploymentCheck:
+          exec:
+            command: .cicd/rc/healthcheck.sh
+      prod: {}
