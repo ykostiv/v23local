@@ -1,6 +1,9 @@
+#!/usr/bin/env node
 //
+// v23.js
 // YAML v.2 to v.3 converter. The whole conversion table is in function convert()
 //
+
 var fs = require('fs');
 var yaml = require('js-yaml');
 
