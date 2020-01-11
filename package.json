@@ -1,4 +1,18 @@
 {
  "name": "v23",
- "bin": "./v23.js"
+ "bin": "v23.js"
+ "version": "1",
+ "description": "YAML v.2 to v.3 convertor, DevFactory",
+ "keywords": [
+   "yaml",
+   "convertor",
+   "devhub",
+   "cicd"
+ ],
+ "homepage": "https://devhub.devfacotory.com",
+ "author": "Yuriy Kostiv <yuriy.kostiv@devfactory.com>",
+ "repository": "ykostiv/v23",
+ "files": [
+   "v23.js"
+ ],
 }
