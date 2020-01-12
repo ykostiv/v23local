@@ -199,8 +199,10 @@ function convert(v2) {
       case "Third party managed service":
         v3.type = "Third party managed service";
         break;
-
-    }
+      default:
+        v3.type = "#TODO";
+        break;
+    } else v3.type = "#TODO";
 
     //arrays
     v3.buildAndDistribute.envVars = v2.buildenvVars?v2.buildenvVars:[];
