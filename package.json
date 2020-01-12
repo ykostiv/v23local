@@ -1,21 +1,21 @@
 {
- "name": "v23",
- "bin": "v23.js",
- "version": "1.0.0",
- "description": "YAML v.2 to v.3 convertor, DevFactory",
- "keywords": [
-   "yaml",
-   "convertor",
-   "devhub",
-   "cicd"
- ],
- "homepage": "https://devhub.devfactory.com",
- "author": "Yuriy Kostiv <yuriy.kostiv@devfactory.com>",
- "repository": "ykostiv/v23",
- "files": [
-   "v23.js"
- ],
- "dependencies": {
-   "js-yaml": "^3.13.1"
- }
+  "name": "v23",
+  "bin": "v23.js",
+  "version": "1.1.0",
+  "description": "YAML v.2 to v.3 convertor, DevFactory",
+  "keywords": [
+    "yaml",
+    "convertor",
+    "devhub",
+    "cicd"
+  ],
+  "homepage": "https://devhub.devfactory.com",
+  "author": "Yuriy Kostiv <yuriy.kostiv@devfactory.com>",
+  "repository": "ykostiv/v23",
+  "files": [
+    "v23.js"
+  ],
+  "dependencies": {
+    "js-yaml": "^3.13.1"
+  }
 }
