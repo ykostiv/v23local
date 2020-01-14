@@ -202,14 +202,13 @@ function convert(v2) {
       default:
         v3.type = "#TODO";
         break;
-    } else v3.type = "#TODO";
+    }
+  } else v3.type = "#TODO";
 
-    //arrays
-    v3.buildAndDistribute.envVars = v2.buildenvVars?v2.buildenvVars:[];
-    v3.deployment.overridableProps.ports = v2.ports?v2.ports:[];
-    v3.deployment.overridableProps.storage = v2.storage?v2.storage:[];
-
-  }
+  //arrays
+  v3.buildAndDistribute.envVars = v2.buildenvVars?v2.buildenvVars:[];
+  v3.deployment.overridableProps.ports = v2.ports?v2.ports:[];
+  v3.deployment.overridableProps.storage = v2.storage?v2.storage:[];
 
   return v3;
 }
