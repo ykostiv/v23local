@@ -6,6 +6,7 @@
 
 var fs = require('fs');
 var yaml = require('js-yaml');
+console.log("v23 YAML Convertor v.1.2.0");
 
 try {
   var fileName = process.argv.slice(2)[0];
@@ -31,20 +32,20 @@ function convert(v2) {
   var v3 = {
     "version": "v3",
     "navigator": {
-      "name": v2.navigator.name?v2.navigator.name:"#TODO",
-      "email": v2.navigator.email?v2.navigator.email:"#TODO"
+      "name": v2.navigator?v2.navigator.name?v2.navigator.name:"#TODO":"#TODO",
+      "email": v2.navigator?v2.navigator.email?v2.navigator.email:"#TODO":"#TODO"
     },
     "tickets": {
-      "engImportTicket": v2.tickets.engImportTicket?v2.tickets.engImportTicket:"#TODO",
-      "devHubTicket": v2.tickets.devHubTicket?v2.tickets.devHubTicket:"#TODO",
-      "dockerTicket": v2.tickets.dockerTicket?v2.tickets.dockerTicket:"#TODO",
-      "devSpacesTicket": v2.tickets.devSpacesTicket?v2.tickets.devSpacesTicket:"#TODO"
+      "engImportTicket": v2.tickets?v2.tickets.engImportTicket?v2.tickets.engImportTicket:"#TODO":"#TODO",
+      "devHubTicket": v2.tickets?v2.tickets.devHubTicket?v2.tickets.devHubTicket:"#TODO":"#TODO",
+      "dockerTicket": v2.tickets?v2.tickets.dockerTicket?v2.tickets.dockerTicket:"#TODO":"#TODO",
+      "devSpacesTicket": v2.tickets?v2.tickets.devSpacesTicket?v2.tickets.devSpacesTicket:"#TODO":"#TODO"
     },
-    "companyName": v2.repo.companyName?v2.repo.companyName:"#TODO",
-    "productName": v2.repo.productName?v2.repo.productName:"#TODO",
+    "companyName": v2.repo?v2.repo.companyName?v2.repo.companyName:"#TODO":"#TODO",
+    "productName": v2.repo?v2.repo.productName?v2.repo.productName:"#TODO":"#TODO",
     "c4containerName": v2.deploy?v2.deploy.serviceName?v2.deploy.serviceName:"#TODO":"#TODO",
     "masterCicdProductYaml": "#TODO",
-    "repoUrl": v2.repo.repoUrl?v2.repo.repoUrl:"#TODO",
+    "repoUrl": v2.repo?v2.repo.repoUrl?v2.repo.repoUrl:"#TODO":"#TODO",
     "repoBranch": "master",
     "githubTeamName": "#TODO",
     "needsLowLevelHardwareAccess": "#TODO",
@@ -54,21 +55,21 @@ function convert(v2) {
       "sourceDependencies": {},
       "triggerOnSuccessOf": {},
       "envVars": [],
-      "os": v2.build.buildOs?v2.build.buildOs:"#TODO",
-      "techStack": v2.build.techStack?v2.build.techStack:"#TODO",
-      "toolchainVersion": v2.build.toolchainVersion?v2.build.toolchainVersion:"#TODO",
-      "runtimeVersion": v2.build.runtimeVersion?v2.build.runtimeVersion:"#TODO",
+      "os": v2.build?v2.build.buildOs?v2.build.buildOs:"#TODO":"#TODO",
+      "techStack": v2.build?v2.build.techStack?v2.build.techStack:"#TODO":"#TODO",
+      "toolchainVersion": v2.build?v2.build.toolchainVersion?v2.build.toolchainVersion:"#TODO":"#TODO",
+      "runtimeVersion": v2.build?v2.build.runtimeVersion?v2.build.runtimeVersion:"#TODO":"#TODO",
       "caching": {
         "folder": {}
       },
       "build": {
-        "tool": v2.build.buildTool?v2.build.buildTool:"#TODO",
-        "preBuildCommand": v2.build.preBuild?v2.build.preBuild:"#TODO",
-        "buildCommand": v2.build.buildCommand?v2.build.buildCommand:"#TODO"
+        "tool": v2.build?v2.build.buildTool?v2.build.buildTool:"#TODO":"#TODO",
+        "preBuildCommand": v2.build?v2.build.preBuild?v2.build.preBuild:"#TODO":"#TODO",
+        "buildCommand": v2.build?v2.build.buildCommand?v2.build.buildCommand:"#TODO":"#TODO"
       },
       "test": {
-        "utFramework": v2.test.utFramework?v2.test.utFramework:"#TODO",
-        "testCommand": v2.test.testCommand?v2.test.testCommand:"#TODO",
+        "utFramework": v2.test?v2.test.utFramework?v2.test.utFramework:"#TODO":"#TODO",
+        "testCommand": v2.test?v2.test.testCommand?v2.test.testCommand:"#TODO":"#TODO",
         "coverageReport": {
           "type": "Cobertura",
           "path": "#TODO"
@@ -79,12 +80,12 @@ function convert(v2) {
         }
       },
       "package": {
-        "tool": v2.package.packageTool?v2.package.packageTool:"#TODO",
-        "command": v2.package.packageCommand?v2.package.packageCommand:"#TODO",
-        "artifactDir": v2.package.artifactDir?v2.package.artifactDir : "#TODO"
+        "tool": v2.package?v2.package.packageTool?v2.package.packageTool:"#TODO":"#TODO",
+        "command": v2.package?v2.package.packageCommand?v2.package.packageCommand:"#TODO":"#TODO",
+        "artifactDir": v2.package?v2.package.artifactDir?v2.package.artifactDir : "#TODO":"#TODO"
       },
       "distribution": {
-        "artifactUploadCommand": v2.package.artifactUploadCommand ? v2.package.artifactUploadCommand : "#TODO"
+        "artifactUploadCommand": v2.package?v2.package.artifactUploadCommand ? v2.package.artifactUploadCommand : "#TODO":"#TODO"
       },
       "requiresIntegrationTests": "#TODO"
     },
