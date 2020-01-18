@@ -1,10 +1,10 @@
 version: v2
 navigator:
-  name: Galina Volobueva
-  email: galina.volobueva@trilogy.com
+  name: John Doe
+  email: john.doe@trilogy.com
 tickets:
-  engImportTicket: https://jira.devfactory.com/browse/SLIAO-8285
-  devHubTicket:    null
+  engImportTicket: https://jira.devfactory.com/browse/Y3K-1
+  devHubTicket:    https://jira.devfactory.com/browse/Y3K-2
   dockerTicket:    null
   devSpacesTicket: null
   vmTicket:        null
